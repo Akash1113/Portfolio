@@ -1,0 +1,146 @@
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #e4dede;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: black;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($x, $y, $z){
+  transition: $x $y $z;
+  -moz-transition: $x $y $z;
+  -ms-transition: $x $y $z;
+  -webkit-transition: $x $y $z;
+  -o-transition: $x $y $z;
+}
+
+@mixin rotate($x){
+  -ms-transform: rotate($x); /* IE 9 */
+   -webkit-transform: rotate($x); /* Chrome, Safari, Opera */
+   transform: rotate($x);
+}
+
+@mixin scale($x){
+  transform: scale($x);
+  -moz-transform: scale($x);
+  -webkit-transform: scale($x);
+  -o-transform: scale($x);
+  -ms-transform: scale($x);
+}
+.row{
+  padding: 0% 5% 5% 5%;
+}
+
+.flip-card{
+  display: inline-block;
+  max-width: 300px;
+  min-width: 150px;
+  content: "";
+  box-shadow: 0 1px 3px 0 rgba(58, 62, 75, 0.25);
+  flex: 0 0 25%;
+  align-items: flex-start;
+  align-content: flex-start;
+  border-radius: .2rem;
+  @include transition(all, 250ms, ease-out);
+
+
+  &:hover {
+    @include scale(1.1);
+    filter: saturate(50%);
+    @include scale(1.1)
+  }
+}
+.heading{
+text-align: center;
+}
+
+
+.text-center{
+text-align: center;
+}
+
+.container{
+overflow-x: hidden;
+}
+
+ul{
+text-align: justify;
+padding-inline-start: 0px;
+}
+
+
+.flip-card:before, .flip-card:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094,
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.flip-card:after {
+	filter: blur(50px);
+}

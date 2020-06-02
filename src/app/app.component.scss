@@ -1,0 +1,23 @@
+html,body{
+  position: fixed;
+overflow-x: hidden;
+
+}
+.frontpage{
+padding: 30px;
+}
+
+.scroller{
+
+overflow-y: scroll;
+scroll-snap-type: y mandatory;
+}
+.scroller, section{
+scroll-snap-align: start;
+height: 100vh;
+}
+.fullscreen{
+height: auto;
+}
+
+

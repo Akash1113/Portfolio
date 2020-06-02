@@ -1,0 +1,9 @@
+.tabs .mat-tab-label {
+background-color: indianred !important;
+}
+
+:host ::ng-deep {
+  .mat-tab-labels .mat-tab-label .mat-tab-label-content {
+    color: yellow;
+  }
+}

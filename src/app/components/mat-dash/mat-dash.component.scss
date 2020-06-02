@@ -1,0 +1,31 @@
+.grid-container {
+  padding: 20px;
+
+  }
+
+.dashboard-card-content{
+width: 100%;
+}
+.image{
+    width:  250px;
+    height: 200px;
+    background-size: cover;
+}
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: transparent;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}

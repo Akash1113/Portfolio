@@ -1,0 +1,66 @@
+.h3{
+  margin: 0px;
+  }
+  .heading-main{
+  text-align: center;
+  }
+
+
+  @mixin transition($x, $y, $z){
+    transition: $x $y $z;
+    -moz-transition: $x $y $z;
+    -ms-transition: $x $y $z;
+    -webkit-transition: $x $y $z;
+    -o-transition: $x $y $z;
+  }
+
+  @mixin rotate($x){
+    -ms-transform: rotate($x); /* IE 9 */
+     -webkit-transform: rotate($x); /* Chrome, Safari, Opera */
+     transform: rotate($x);
+  }
+
+  @mixin scale($x){
+    transform: scale($x);
+    -moz-transform: scale($x);
+    -webkit-transform: scale($x);
+    -o-transform: scale($x);
+    -ms-transform: scale($x);
+  }
+
+
+  .card {
+    text-align: center;
+    background-color: white;
+    display: flex;
+    content: "";
+    margin: 1%;
+    box-shadow: 0 1px 3px 0 rgba(58, 62, 75, 0.25);
+    flex: 0 0 25%;
+    align-items: center;
+    justify-content: center;
+    align-content: flex-start;
+    border-radius: .2rem;
+    @include transition(all, 250ms, ease-out);
+
+    &:hover {
+      @include scale(1.1);
+      filter: saturate(50%);
+      @include scale(1.2)
+    }
+  }
+  .container{
+  overflow-x: hidden;
+  }
+
+  .nav-link {
+    font-size: x-large;
+    color: white;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: black;
+    }
+  }
+
